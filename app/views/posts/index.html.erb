@@ -1,0 +1,27 @@
+<header>
+  <div class="header-logo">
+    <a href="/">TweetApp</a>
+  </div>
+  <ul class="header-menus">
+    <li>
+      <a href="/about">TweetAppとは</a>
+    </li>
+  </ul>
+</header>
+
+<% posts = [
+  "今日からProgateでRailsの勉強するよー！",
+  "投稿一覧ページ作成中！"
+] %>
+
+<div class="main posts-index">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <!-- 以下の<%= %>を使って投稿内容を表示してください -->
+        <%= post%>
+      </div>
+    <!-- 以下の<% %>を使ってeach文のendを追加してください -->
+    <% end %>
+  </div>
+</div>
