@@ -1,25 +1,21 @@
 <header>
   <div class="header-logo">
-    <a href="/">TweetApp</a>
+    <a href="/">Hima_Board</a>
   </div>
   <ul class="header-menus">
     <li>
-      <a href="/about">TweetAppとは</a>
+      <a href="/about">Time Line</a>
     </li>
   </ul>
 </header>
 
-<% posts = [
-  "今日からProgateでRailsの勉強するよー！",
-  "投稿一覧ページ作成中！"
-] %>
 
 <div class="main posts-index">
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <!-- 以下の<%= %>を使って投稿内容を表示してください -->
-        <%= post%>
+        <%= post.name  %>&nbsp;&nbsp;&nbsp;<%= "~" %> <%= post.limit.hour %> <%= ":" %> <% if post.limit.min == "0" %> <%=-"00"%> <% else %> <%= post.limit.min+post.limit.min %> <% end %> <%= post.limit.min %>&nbsp;&nbsp;&nbsp;<%= post.purpose %>
       </div>
     <!-- 以下の<% %>を使ってeach文のendを追加してください -->
     <% end %>
