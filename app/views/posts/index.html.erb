@@ -13,11 +13,29 @@
 <div class="main posts-index">
   <div class="container">
     <% @posts.each do |post| %>
-      <div class="posts-index-item">
+      
         <!-- 以下の<%= %>を使って投稿内容を表示してください -->
         <!-- <%= post.name  %>&nbsp;&nbsp;&nbsp;<%= "~" %> <%= post.limit.hour %> <%= ":" %> <% if post.limit.min == "0" %> <%=-"00"%> <% else %> <%= post.limit.min+post.limit.min %> <% end %> <%= post.limit.min %>&nbsp;&nbsp;&nbsp;<%= post.purpose %>-->
-        <%= link_to(post.name,"/posts/#{post.id}") %>&nbsp;&nbsp;<%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
-      </div>
+        
+        <% time=Time.now %>
+        
+        <% time = time + 9.hour %>
+        <% post.created_at = post.created_at + 9.hour %>
+        
+        <% if post.created_at.year == time.year %>
+          <% if post.created_at.month == time.month %>
+            <% if post.created_at.day == time.day %>
+              <% if post.limit.hour >= time.hour %>
+                <div class="posts-index-item">
+                  <%= link_to(post.name,"/posts/#{post.id}") %>&nbsp;&nbsp;<%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+        
+        
+        
     <!-- 以下の<% %>を使ってeach文のendを追加してください -->
     <% end %>
   </div>
