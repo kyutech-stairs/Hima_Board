@@ -16,7 +16,7 @@
       <div class="posts-index-item">
         <!-- 以下の<%= %>を使って投稿内容を表示してください -->
         <!-- <%= post.name  %>&nbsp;&nbsp;&nbsp;<%= "~" %> <%= post.limit.hour %> <%= ":" %> <% if post.limit.min == "0" %> <%=-"00"%> <% else %> <%= post.limit.min+post.limit.min %> <% end %> <%= post.limit.min %>&nbsp;&nbsp;&nbsp;<%= post.purpose %>-->
-        <%= post.name %>&nbsp;&nbsp;<%= "~" %> <%= post.limit.strftime('%H:%M') %>&nbsp;&nbsp;<%= post.purpose %>
+        <%= link_to(post.name,"/posts/#{post.id}") %>&nbsp;&nbsp;<%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
       </div>
     <!-- 以下の<% %>を使ってeach文のendを追加してください -->
     <% end %>
