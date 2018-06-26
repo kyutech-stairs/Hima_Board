@@ -2,4 +2,17 @@
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
   </div>
+  <%= form_tag("/posts/create") do %>
+  <div class="form">
+      <div class="form-body">
+        <%= "名前" %>
+        <textarea name="name"></textarea>
+        <%= "setTime" %>
+        <input type="time" name="limit">
+        <%= "目的" %>
+        <textarea name="purpose"></textarea>
+        <input type="submit" value="投稿">
+      </div>
+    </div>
+  <% end %>
 </div>
