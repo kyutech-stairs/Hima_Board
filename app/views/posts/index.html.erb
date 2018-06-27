@@ -5,7 +5,6 @@
     <% @posts.each do |post| %>
       
         <!-- 以下の<%= %>を使って投稿内容を表示してください -->
-        <!-- <%= post.name  %>&nbsp;&nbsp;&nbsp;<%= "~" %> <%= post.limit.hour %> <%= ":" %> <% if post.limit.min == "0" %> <%=-"00"%> <% else %> <%= post.limit.min+post.limit.min %> <% end %> <%= post.limit.min %>&nbsp;&nbsp;&nbsp;<%= post.purpose %>-->
         
         <% time=Time.now %>
         
