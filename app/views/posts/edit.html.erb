@@ -1,0 +1,18 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">編集する</h1>
+    
+    <div class="form">
+      <div class="form-body">
+        <%= "名前" %>
+        <textarea name="name"><%= @post.name %></textarea>
+        <%= "setTime" %>
+        <input type="time" name="limit">
+        <%= "目的" %>
+        <textarea name="purpose"><%= @post.purpose %></textarea>
+        <input type="submit" value="保存">
+      </div>
+    </div>
+    
+  </div>
+</div>

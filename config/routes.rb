@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   
   post "posts/create" => "posts#create"
   
+  get "posts/:id/edit" => "posts#edit"
+  
   get 'posts/:id' => 'posts#show'
   
   
