@@ -5,12 +5,17 @@
   <%= form_tag("/posts/create") do %>
   <div class="form">
       <div class="form-body">
+        <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
         <%= "名前" %>
-        <textarea name="name"></textarea>
+        <textarea name="name"><%= @post.name %></textarea>
         <%= "setTime" %>
-        <input type="time" name="limit">
+        <input type="time" name="limit"  >
         <%= "目的" %>
-        <textarea name="purpose"></textarea>
+        <textarea name="purpose"><%= @post.purpose %></textarea>
         <input type="submit" value="投稿">
       </div>
     </div>
