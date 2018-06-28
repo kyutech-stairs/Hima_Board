@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   get 'posts/index'
 
   get 'home/top'
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
   
   get 'posts/:id' => 'posts#show'
+  
+  get  '/signup',  to: 'users#new'
   
   
 end
