@@ -9,6 +9,30 @@
   </head>
 
   <body>
+    <header>
+  <div class="header-logo">
+    <%= link_to("HimaBoard","/posts/index") %>
+  </div>
+  <ul class="header-menus">
+    <li>
+      <%= link_to("新規投稿","/posts/new") %>&nbsp;<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    </li>
+  </ul>
+</header>
+
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+<% end %>
+
+
+    
+
     <%= yield %>
+    
+    <%= debug(params) if !Rails.env.development? %>
+    
+    
   </body>
 </html>
