@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  limit: 2018-07-01 14:18:39
+  purpose: MyString
+  user: one
+
+two:
+  limit: 2018-07-01 14:18:39
+  purpose: MyString
+  user: two

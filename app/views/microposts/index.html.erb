@@ -1,0 +1,18 @@
+
+<div class="main posts-index">
+<div class = "container">
+  <div class  = "posts-index-item">
+
+<li>
+  <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+  <span class="content"><%= micropost.purpose %></span>
+  <span class="content"><%= micropost.limit %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+  </span>
+</li>
+
+</div>
+</div>
+</div>
