@@ -10,8 +10,7 @@
               <%= message %>
             </div>
           <% end %>
-        <%= "名前" %>
-        <textarea name="name"><%= @post.name %></textarea>
+        
         <%= "setTime" %>
         <input type="time" name="limit" value="<%= @post.limit.strftime('%H:%M') %>" >
         <%= "目的" %>

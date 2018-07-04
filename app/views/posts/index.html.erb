@@ -17,12 +17,12 @@
             <% if post.created_at.day == time.day %>
               <% if post.limit.hour > time.hour %>
                 <div class="posts-index-item">
-                  <%= link_to(post.name,"/posts/#{post.id}") %>&nbsp;&nbsp;<%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
+                  <%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
                 </div>
               <% elsif post.limit.hour == time.hour %>
                 <% if post.limit.min >= time.min %>
                   <div class="posts-index-item">
-                    <%= link_to(post.name,"/posts/#{post.id}") %>&nbsp;&nbsp;<%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
+                    <%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
                   </div>
                 <% end %>
               <% end %>
