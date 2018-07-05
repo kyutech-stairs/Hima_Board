@@ -1,0 +1,15 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <%= @post.name %>&nbsp;&nbsp;<%= "~" %> <%= @post.limit.strftime('%H:%M') %>&nbsp;&nbsp;<%= @post.purpose %>
+    </div>
+    <div class="post-time">
+        <!-- @postのcreated_atカラムのデータを表示してください -->
+        <%= (@post.created_at + 9.hour) %>
+    </div>
+    <div class="post-menus">
+        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+        <%= link_to("削除", "/posts/#{@post.id}/destroy",{method:"post"}) %>
+    </div>
+  </div>
+</div>
