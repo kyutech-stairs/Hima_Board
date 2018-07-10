@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
+  
+  before_action :logged_in_user, only: [:create, :destroy]
+  
   def index
-    @posts = Post.all.order(limit: :desc)
+    
+    if logged_in?
+      @posts  = current_user.posts.build
+      @posts = Post.all.order(limit: :desc)
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
   end
   def show
      @post = Post.find_by(id: params[:id]) 
@@ -10,7 +18,7 @@ class PostsController < ApplicationController
   end
   def create
     
-    @post = Post.new(name: params[:name],limit: params[:limit],purpose: params[:purpose])
+    @post = current_user.posts.build(post_params)
     
     if @post.save
       flash[:notice]="投稿を作成しました"
@@ -49,5 +57,11 @@ class PostsController < ApplicationController
     flash[:notice]="投稿を削除しました"
     redirect_to("/posts/index")
   end
+  
+  private
+
+    def post_params
+      params.require(:post).permit(:limit, :purpose)
+    end
   
 end

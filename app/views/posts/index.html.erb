@@ -2,6 +2,7 @@
 <div class="main posts-index">
 
   <div class="container">
+  <% if logged_in? %>
     <% @posts.each do |post| %>
       
         <!-- 以下の<%= %>を使って投稿内容を表示してください -->
@@ -17,12 +18,12 @@
             <% if post.created_at.day == time.day %>
               <% if post.limit.hour > time.hour %>
                 <div class="posts-index-item">
-                  <%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
+                  <%= current_user.name %>&nbsp;&nbsp;<%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
                 </div>
               <% elsif post.limit.hour == time.hour %>
                 <% if post.limit.min >= time.min %>
                   <div class="posts-index-item">
-                    <%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
+                    <%= current_user.name %>&nbsp;&nbsp;<%= "~" %> <%= link_to(post.limit.strftime('%H:%M'),"/posts/#{post.id}") %>&nbsp;&nbsp;<%= link_to(post.purpose,"/posts/#{post.id}") %>
                   </div>
                 <% end %>
               <% end %>
@@ -34,5 +35,6 @@
         
     <!-- 以下の<% %>を使ってeach文のendを追加してください -->
     <% end %>
+  <% end %>
   </div>
 </div>

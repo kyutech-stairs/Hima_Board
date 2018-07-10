@@ -1,0 +1,14 @@
+<div class="main posts-index">
+<div class = "container">
+  <div class  = "posts-index-item">
+    
+    <% if @feed_items.any? %>
+      <ol class="microposts">
+        <%= render @feed_items %>
+      </ol>
+        <%= will_paginate @feed_items %>
+    <% end %>
+    
+  </div>
+</div>
+</div>

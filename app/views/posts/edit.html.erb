@@ -12,7 +12,7 @@
           <% end %>
         
         <%= "setTime" %>
-        <input type="time" name="limit" value="<%= @post.limit.strftime('%H:%M') %>" >
+        <input type="datetime" name="limit" value="<%= @post.limit.strftime('%H:%M') %>" >
         <%= "目的" %>
         <textarea name="purpose"><%= @post.purpose %></textarea>
         <input type="submit" value="保存">
