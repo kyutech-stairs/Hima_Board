@@ -9,10 +9,44 @@
             <h1>
               <%= gravatar_for @user %>
               <%= @user.name %>
+              <% @user ||= current_user %>
+              
+              <div class="stats">
+
+              <a href="<%= following_user_path(@user) %>">
+              <strong id="following">
+                 <%= @user.following.count %>
+              </strong>
+              following
+              </a>
+              <a href="<%= followers_user_path(@user) %>">
+                <strong id="followers" class="stat">
+                <%= @user.followers.count %>
+              </strong>
+              followers
+              </a>
+              
+              </div>
+            
             </h1>
           </section>
           
         </aside>
+        <% unless current_user?(@user) %>
+          <div id="follow_form">
+            <% if current_user.following?(@user) %>
+              <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+              html: { method: :delete }) do |f| %>
+                <%= f.submit "Unfollow", class: "btn" %>
+              <% end %>
+            <% else %>
+              <%= form_for(current_user.active_relationships.build) do |f| %>
+                <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                <%= f.submit "Follow", class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
         
         <% if logged_in? %>
     <% @posts.each do |post| %>
